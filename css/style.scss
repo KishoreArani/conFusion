@@ -40,7 +40,7 @@ address{
 }
 
 body{
-    padding:50px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
     z-index:0;
 }
 
@@ -75,3 +75,16 @@ body{
     bottom: 0px;
     z-index: 1;
 }
+
+.modal-header{
+    background:$background-light;
+    color:floralwhite;
+    .button{
+    background:floralwhite;
+    }
+}
+
+.modal-body{
+    background:$background-pale;
+}
+

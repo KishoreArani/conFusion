@@ -36,11 +36,57 @@ module.exports = function(grunt){
 					}
 				}
 			}
-		}
+		},
+
+		copy : {
+			html: {
+				files: [{
+					expand: true,
+					dot: true,
+					cwd: './',
+					src: ['*.html'],
+					dest: 'dist'
+				}]
+			},
+			fonts: {
+				files: [{
+					expand: true,
+					dot: true,
+					cwd: 'node_modules/font-awesome',
+					src: ['fonts/*.*'],
+					dest: 'dist'
+				}]
+			}
+		},
+
+		clean: {
+			build: {
+				src: ['dist/']
+			}
+		},
+
+		imagemin: {
+			dynamic: {
+				files: [{
+					expand: true,
+					dot: true,
+					cwd: './',
+					src: ['img/*.{png,jpg,gif}'],
+					dest: 'dist/'
+				}]
+			}
+		},
+
+		
 
 
 	});
 
 	grunt.registerTask('css',['sass']);
 	grunt.registerTask('default', ['browserSync', 'watch']);
+	grunt.registerTask('build', [
+		'clean',
+		'copy',
+		'imagemin'
+		]);
 };
